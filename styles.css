@@ -1,18 +1,19 @@
 body {
     font-family: Arial, sans-serif;
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    background-color: #fff;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
 }
 
 header {
@@ -24,28 +25,21 @@ header {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    object-fit: cover;
     margin-bottom: 10px;
 }
 
 h1 {
+    font-size: 2.5em;
     margin: 0;
-    font-size: 2em;
-    color: #333;
 }
 
 .contact-info {
+    font-size: 1.1em;
     margin-top: 10px;
-}
-
-.contact-info p {
-    margin: 5px 0;
-    color: #666;
 }
 
 .contact-info .label {
     font-weight: bold;
-    color: #333;
 }
 
 section {
@@ -53,31 +47,26 @@ section {
 }
 
 h2 {
+    font-size: 2em;
     border-bottom: 2px solid #333;
     padding-bottom: 5px;
     margin-bottom: 10px;
-    color: #333;
 }
 
 h3 {
-    margin: 0;
-    font-size: 1.2em;
-    color: #333;
+    font-size: 1.5em;
+    margin: 10px 0;
 }
 
-.experience, .education {
-    margin-bottom: 10px;
-}
-
-.skills {
-    list-style-type: none;
-    padding: 0;
-}
-
-.skills li {
-    background-color: #e4e4e4;
+p {
     margin: 5px 0;
-    padding: 10px;
-    border-radius: 3px;
-    color: #333;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 10px 0 10px 20px;
+}
+
+.skills .skill {
+    margin-bottom: 10px;
 }
