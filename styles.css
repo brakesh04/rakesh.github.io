@@ -84,9 +84,9 @@ footer {
 }
 
 .button-container button {
-    background-color: #4CAF50; /* Green */
+    background-color: #FFFDD0; /* Cream */
     border: none;
-    color: white;
+    color: black;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -98,6 +98,7 @@ footer {
 }
 
 .button-container button:hover {
-    background-color: #45a049;
+    background-color: #F0E68C; /* Light Khaki for hover effect */
 }
+
 
