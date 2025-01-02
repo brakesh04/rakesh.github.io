@@ -105,7 +105,7 @@
             const doc = new jsPDF();
             doc.html(document.body, {
                 callback: function (doc) {
-                    doc.save("resume.pdf");
+                    doc.save("rakesh-resume.pdf");
                 },
                 x: 10,
                 y: 10
@@ -210,7 +210,7 @@
             Packer.toBlob(doc).then((blob) => {
                 const link = document.createElement("a");
                 link.href = URL.createObjectURL(blob);
-                link.download = "resume.docx";
+                link.download = "rakesh-resume.docx";
                 link.click();
             });
         }
