@@ -6,6 +6,8 @@
     <title>Rakesh Bollepally</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.0/docx.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -50,6 +52,12 @@
                 <h3>Master of Technology (M.Tech) in Computer Science</h3>
                 <p>Kakatiya University</p>
                 <p>2011 - 2013</p>
+                <p><strong>Key Achievements:</strong></p>
+                <ul>
+                    <li>Graduated with distinction.</li>
+                    <li>Specialized in <strong>Data Structures</strong> and <strong>Algorithms</strong>.</li>
+                    <li>Completed a thesis on <strong>Machine Learning</strong> applications in recruitment.</li>
+                </ul>
             </div>
         </section>
         <section>
@@ -85,5 +93,123 @@
             <p id="current-date"></p>
         </footer>
     </div>
+    <button onclick="downloadPDF()">Download as PDF</button>
+    <button onclick="downloadWord()">Download as Word</button>
+    <script>
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.html(document.body, {
+                callback: function (doc) {
+                    doc.save("resume.pdf");
+                },
+                x: 10,
+                y: 10
+            });
+        }
+
+        function downloadWord() {
+            const { Document, Packer, Paragraph, TextRun } = docx;
+
+            const doc = new Document({
+                sections: [
+                    {
+                        properties: {},
+                        children: [
+                            new Paragraph({
+                                children: [
+                                    new TextRun("Rakesh Bollepally"),
+                                    new TextRun({
+                                        text: "\n📞 +91 8978964323\n✉️ brakesh0604@gmail.com\n📍 India, Telangana, Hyderabad",
+                                        break: 1,
+                                    }),
+                                ],
+                            }),
+                            new Paragraph({
+                                text: "Experience",
+                                heading: docx.HeadingLevel.HEADING_1,
+                            }),
+                            new Paragraph({
+                                text: "Freelancing Recruiter\nSelf-Employed\nAs a freelance recruiter, I have successfully sourced, screened, and placed candidates for various clients across different industries. My responsibilities included:",
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun("• Conducting initial candidate screenings and interviews.\n"),
+                                    new TextRun("• Collaborating with clients to understand their hiring needs and requirements.\n"),
+                                    new TextRun("• Utilizing various recruitment platforms and social media to attract top talent.\n"),
+                                    new TextRun("• Managing the end-to-end recruitment process, from job posting to offer negotiation.\n"),
+                                    new TextRun("• Maintaining a database of qualified candidates for future opportunities."),
+                                ],
+                            }),
+                            new Paragraph({
+                                text: "Exam Preparation\nTSPSC and UPSC Exams\n2014 - 2024\nDuring this period, I was preparing for TSPSC and UPSC exams, which accounts for the gap in my professional career.",
+                            }),
+                            new Paragraph({
+                                text: "Education",
+                                heading: docx.HeadingLevel.HEADING_1,
+                            }),
+                            new Paragraph({
+                                text: "Bachelor's Degree in Information Technology\nVaagdevi College of Engineering\n2006 - 2010",
+                            }),
+                            new Paragraph({
+                                text: "Master of Technology (M.Tech) in Computer Science\nKakatiya University\n2011 - 2013\nKey Achievements:",
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun("• Graduated with distinction.\n"),
+                                    new TextRun("• Specialized in Data Structures and Algorithms.\n"),
+                                    new TextRun("• Completed a thesis on Machine Learning applications in recruitment."),
+                                ],
+                            }),
+                            new Paragraph({
+                                text: "Skills",
+                                heading: docx.HeadingLevel.HEADING_1,
+                            }),
+                            new Paragraph({
+                                text: "Technical Knowledge",
+                                heading: docx.HeadingLevel.HEADING_2,
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun("• Understanding of various technologies\n"),
+                                    new TextRun("• Programming languages\n"),
+                                    new TextRun("• Technical roles to effectively screen and evaluate candidates"),
+                                ],
+                            }),
+                            new Paragraph({
+                                text: "Communication Skills",
+                                heading: docx.HeadingLevel.HEADING_2,
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun("• Strong verbal and written communication skills\n"),
+                                    new TextRun("• Interact with candidates and hiring managers\n"),
+                                    new TextRun("• Clearly convey job requirements and expectations"),
+                                ],
+                            }),
+                            new Paragraph({
+                                text: "Sourcing and Networking",
+                                heading: docx.HeadingLevel.HEADING_2,
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun("• Proficiency in using recruitment tools\n"),
+                                    new TextRun("• Social media\n"),
+                                    new TextRun("• Networking to identify and attract top talent"),
+                                ],
+                            }),
+                        ],
+                    },
+                ],
+            });
+
+            Packer.toBlob(doc).then((blob) => {
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = "resume.docx";
+                link.click();
+            });
+        }
+    </script>
 </body>
 </html>
